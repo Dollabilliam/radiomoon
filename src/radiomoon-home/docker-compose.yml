@@ -1,0 +1,13 @@
+version: "3"
+services:
+  web:
+    container_name: home_website
+    image: nginx:latest
+    ports:
+      - "8081:80"
+    volumes:
+      - ./src/site/:/usr/share/nginx/html
+    deploy:
+      resources:
+        limits:
+          memory: 50M

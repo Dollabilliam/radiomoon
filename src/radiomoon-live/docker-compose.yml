@@ -1,0 +1,14 @@
+services:
+  web:
+    container_name: live-website
+    image: nginx:latest
+    volumes:
+      - ./src/site/:/usr/share/nginx/html
+    deploy:
+      resources:
+        limits:
+          memory: 100M
+
+networks:
+  default:
+    name: nginx-proxy-network

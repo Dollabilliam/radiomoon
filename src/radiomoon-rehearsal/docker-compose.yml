@@ -1,0 +1,14 @@
+services:
+  web:
+    container_name: rehearsal-website
+    image: nginx:latest
+    volumes:
+      - ./src/site:/usr/share/nginx/html
+    deploy:
+      resources:
+        limits:
+          memory: 50M
+
+networks:
+  default:
+    name: nginx-proxy-network
