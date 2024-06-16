@@ -1,0 +1,25 @@
+name: deploy to a server on push
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy-to-server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v4
+        with: 
+          # This will create a directory named `my-repo` and copy the repo contents to it
+          # so that you can easily upload it to your remote server
+          path: my-repo
+      # Runs a set of commands using the runners shell
+      - name: Upload repo to remote server
+        env:
+           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+         ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+         ssh-add - <<< "${{ secrets.PRIVATE_KEY }}"
+         scp -o StrictHostKeyChecking=no -r -P 59666 my-repo billy@5.252.227.5:/home/billy/test
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:${{ secrets.VPS_TARGET_DIR }}
