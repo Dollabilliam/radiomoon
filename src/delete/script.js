@@ -7,12 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const pixel = document.createElement('div');
             pixel.classList.add('pixel');
             
-            // Create waning crescent moon shape
+            // Create full moon shape
             const distanceFromCenter = Math.sqrt(Math.pow(x - 25, 2) + Math.pow(y - 25, 2));
-            if (distanceFromCenter < 20 && x > 15) {
-                if (x > 30) {
+            if (distanceFromCenter < 20) {
+                if (distanceFromCenter < 15) {
                     pixel.classList.add('moon-bright');
-                } else if (x > 25) {
+                } else if (distanceFromCenter < 18) {
                     pixel.classList.add('moon-medium');
                 } else {
                     pixel.classList.add('moon-dark');
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // Add stars
-            if (Math.random() > 0.995) {
+            if (Math.random() > 0.995 && distanceFromCenter > 20) {
                 pixel.classList.add('star');
             }
             
