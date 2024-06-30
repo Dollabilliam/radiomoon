@@ -11,3 +11,7 @@ services:
       resources:
         limits:
           memory: 50M
+
+networks:
+  default:
+    name: nginx-proxy-network
