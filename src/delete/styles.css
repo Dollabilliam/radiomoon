@@ -11,8 +11,8 @@ body {
     width: 400px;
     height: 400px;
     display: grid;
-    grid-template-columns: repeat(40, 1fr);
-    grid-template-rows: repeat(40, 1fr);
+    grid-template-columns: repeat(50, 1fr);
+    grid-template-rows: repeat(50, 1fr);
 }
 
 .pixel {
@@ -20,14 +20,23 @@ body {
     height: 100%;
 }
 
-.moon {
+.moon-bright {
     background-color: #ffd700;
 }
 
-.moon-dark {
+.moon-medium {
     background-color: #e6b800;
 }
 
-.landscape {
+.moon-dark {
+    background-color: #a87900;
+}
+
+.star {
+    background-color: #ffffff;
+    opacity: 0.8;
+}
+
+.cloud {
     background-color: #1a1a1a;
 }

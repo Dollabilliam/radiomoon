@@ -1,26 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
     const pixelArt = document.querySelector('.pixel-art');
-    const size = 40;
+    const size = 50;
     
     for (let y = 0; y < size; y++) {
         for (let x = 0; x < size; x++) {
             const pixel = document.createElement('div');
             pixel.classList.add('pixel');
             
-            // Create moon shape
-            const distanceFromCenter = Math.sqrt(Math.pow(x - 20, 2) + Math.pow(y - 20, 2));
-            if (distanceFromCenter < 15) {
-                pixel.classList.add('moon');
-                
-                // Add some darker spots for texture
-                if ((x + y) % 7 === 0 && Math.random() > 0.5) {
+            // Create waning crescent moon shape
+            const distanceFromCenter = Math.sqrt(Math.pow(x - 25, 2) + Math.pow(y - 25, 2));
+            if (distanceFromCenter < 20 && x > 15) {
+                if (x > 30) {
+                    pixel.classList.add('moon-bright');
+                } else if (x > 25) {
+                    pixel.classList.add('moon-medium');
+                } else {
                     pixel.classList.add('moon-dark');
+                }
+                
+                // Add craters
+                if (Math.random() > 0.9) {
+                    pixel.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
                 }
             }
             
-            // Add landscape at the bottom
-            if (y > 30 && Math.random() > 0.5) {
-                pixel.classList.add('landscape');
+            // Add stars
+            if (Math.random() > 0.995) {
+                pixel.classList.add('star');
+            }
+            
+            // Add subtle cloud effect
+            if (y > 40 && Math.random() > 0.7) {
+                pixel.classList.add('cloud');
             }
             
             pixelArt.appendChild(pixel);
