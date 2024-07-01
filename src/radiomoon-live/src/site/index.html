@@ -1,48 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="icon" href=".assets/images/favicon.ico" type="image/x-icon">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      body {
-        font-family: 'Lucida Console', monospace;
-        color: white;
-        background-color: rgb(0, 0, 0);
-      }
-    
-      .center {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-    
-      .vinyl {
-        width: 400px;
-        height: auto;
-        animation: rotation 30s infinite linear;
-      }
-    
-      @keyframes rotation {
-        from {
-          transform: rotate(0deg);
-        }
-    
-        to {
-          transform: rotate(359deg);
-        }
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href=".assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/styles.css" />
     <title>Radio Moon</title>
   </head>
   <body>
     <div class="center">
-      <img src="./assets/images/radio-moon-vinyl.png" alt="radio-moon-vinyl" class="vinyl">
-      <h3>Radio Moon</h3> 
-      <iframe src="https://listen.radiomoon.eu/public/radio_moon/embed?theme=dark"
-              frameborder="0" allowtransparency="true" style="width: 100%; min-height:
-                           150px;">
+      <img
+        src="./assets/images/radio-moon-vinyl.png"
+        alt="radio-moon-vinyl"
+        class="vinyl"
+      />
+      <h3>Radio Moon</h3>
+      <iframe
+        src="https://listen.radiomoon.eu/public/radio_moon/embed?theme=dark"
+        frameborder="0"
+        allowtransparency="true"
+        style="width: 100%; min-height: 150px"
+      >
       </iframe>
     </div>
   </body>
